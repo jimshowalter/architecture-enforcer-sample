@@ -13,11 +13,11 @@
 
 package com.jimandlisa.ui.two;
 
-import com.jimandlisa.service.one.Service1;
+import com.jimandlisa.service.Service2;
 
 public class UI2 {
 
 	public static void u1() {
-		Service1.s1();
+		Service2.s2();
 	}
 }
