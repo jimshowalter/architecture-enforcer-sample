@@ -22,8 +22,8 @@ public class Service2Test {
 		System.setProperty("bogus1", "bogus");
 		Service2.hideReflectionCall1();
 		System.setProperty("bogus2", "bogus");
-		Service2.hideReflectionCall1();
-		System.setProperty("bogus3", "bogus");
 		Service2.hideReflectionCall2();
+		System.setProperty("bogus3", "bogus");
+		Service2.hideReflectionCall3();
 	}
 }
