@@ -15,7 +15,7 @@ package com.jimandlisa.service;
 
 import org.junit.Test;
 
-public class ServiceCoverage {
+public class Service2Test {
 
 	@Test
 	public void doTest() {
