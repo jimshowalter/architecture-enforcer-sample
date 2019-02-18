@@ -13,11 +13,18 @@
 
 package com.jimandlisa.service;
 
+import java.lang.reflect.Method;
+
 import com.jimandlisa.app.two.App2;
+import com.jimandlisa.utils.Utils;
 
 public class Service2 {
 
-	public static void s2() {
-		App2.a2();
+	public static void s2(Class<?> callerClass, String caller, int depth) throws Exception {
+		Utils.called(Service2.class, "s2", callerClass, caller, depth);
+		App2.a2(Service2.class, "s2", depth + 2);
+		Method method = Class.forName("com.jimandlisa.ui.one.UI1").getDeclaredMethod("u1Private", Class.class, String.class, int.class); // Illegal!
+		method.setAccessible(true);
+		method.invoke(null, Service2.class, "s2", depth + 2);
 	}
 }

@@ -13,11 +13,15 @@
 
 package com.jimandlisa.app.one;
 
+import com.jimandlisa.app.two.App2;
 import com.jimandlisa.data.Data;
+import com.jimandlisa.utils.Utils;
 
 public class App1 {
 
-	public static void a1() {
-		Data.d();
+	public static void a1(Class<?> callerClass, String caller, int depth) {
+		Utils.called(App1.class, "a1", callerClass, caller, depth);
+		Data.d(App1.class, "a1", depth + 2);
+		App2.a2(App1.class, "a1", depth + 2); // Illegal!
 	}
 }

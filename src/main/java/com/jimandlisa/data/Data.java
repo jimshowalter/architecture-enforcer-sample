@@ -13,9 +13,11 @@
 
 package com.jimandlisa.data;
 
+import com.jimandlisa.utils.Utils;
+
 public class Data {
 
-	public static void d() {
-		System.out.println();
+	public static void d(Class<?> callerClass, String caller, int depth) {
+		Utils.called(Data.class, "d", callerClass, caller, depth);
 	}
 }

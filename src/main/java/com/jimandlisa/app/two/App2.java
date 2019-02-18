@@ -14,10 +14,12 @@
 package com.jimandlisa.app.two;
 
 import com.jimandlisa.data.Data;
+import com.jimandlisa.utils.Utils;
 
 public class App2 {
 
-	public static void a2() {
-		Data.d();
+	public static void a2(Class<?> callerClass, String caller, int depth) {
+		Utils.called(App2.class, "a2", callerClass, caller, depth);
+		Data.d(App2.class, "a2", depth + 2);
 	}
 }

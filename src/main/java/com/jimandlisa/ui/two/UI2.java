@@ -14,10 +14,12 @@
 package com.jimandlisa.ui.two;
 
 import com.jimandlisa.service.Service2;
+import com.jimandlisa.utils.Utils;
 
 public class UI2 {
 
-	public static void u1() {
-		Service2.s2();
+	public static void u2(Class<?> callerClass, String caller, int depth) throws Exception {
+		Utils.called(UI2.class, "u2", callerClass, caller, depth);
+		Service2.s2(UI2.class, "u2", depth + 2);
 	}
 }

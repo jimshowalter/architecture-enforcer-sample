@@ -11,21 +11,22 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-package com.jimandlisa.ui.one;
+package com.jimandlisa.utils;
 
-import com.jimandlisa.service.one.Service1;
-import com.jimandlisa.utils.Utils;
+public class Utils {
+	
+	private static final String BLANKS = "                                                                                                             ";
 
-public class UI1 {
-
-	public static void u1(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(UI1.class, "u1", callerClass, caller, depth);
-		Service1.s1(UI1.class, "u1", depth + 2);
+	public static String indent(int count, String s) {
+		return BLANKS.substring(0, count) + s;
+//		String k = String.format("%1$" + count + "s", s);
+//		String y = String.format("%1$-4s", s);
+//		String t = String.format("$4s%s", s);
+//		return String.format("%1$" + count + "s", s); // Not efficient, but not important for this sample.
 	}
-
-	@SuppressWarnings("unused")
-	private static void u1Private(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(UI1.class, "u1Private", callerClass, caller, depth);
-		Service1.s1(UI1.class, "u1Private", depth + 2);
+	
+	// TODO: Use aspects.
+	public static void called(Class<?> calledClass, String called, Class<?> callerClass, String caller, int depth) {
+		System.out.println(indent(depth + 2, calledClass.getSimpleName() + "." + called + " called by " + callerClass.getSimpleName() + "." + caller));
 	}
 }

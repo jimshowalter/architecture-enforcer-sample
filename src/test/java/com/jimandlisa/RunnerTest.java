@@ -11,21 +11,19 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-package com.jimandlisa.ui.one;
+package com.jimandlisa;
 
-import com.jimandlisa.service.one.Service1;
-import com.jimandlisa.utils.Utils;
+import org.junit.Test;
 
-public class UI1 {
+import com.jimandlisa.ui.one.UI1;
+import com.jimandlisa.ui.two.UI2;
 
-	public static void u1(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(UI1.class, "u1", callerClass, caller, depth);
-		Service1.s1(UI1.class, "u1", depth + 2);
-	}
+public class RunnerTest {
 
-	@SuppressWarnings("unused")
-	private static void u1Private(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(UI1.class, "u1Private", callerClass, caller, depth);
-		Service1.s1(UI1.class, "u1Private", depth + 2);
+	@Test
+	public void runIt() throws Exception {
+		System.out.println(RunnerTest.class.getSimpleName() + ".runIt");
+		UI1.u1(RunnerTest.class, "runIt", 0);
+		UI2.u2(RunnerTest.class, "runIt", 0);
 	}
 }
