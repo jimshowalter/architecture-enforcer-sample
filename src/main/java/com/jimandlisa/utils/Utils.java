@@ -14,17 +14,11 @@
 package com.jimandlisa.utils;
 
 public class Utils {
-	
-	private static final String BLANKS = "                                                                                                             ";
 
 	public static String indent(int count, String s) {
-		return BLANKS.substring(0, count) + s;
-//		String k = String.format("%1$" + count + "s", s);
-//		String y = String.format("%1$-4s", s);
-//		String t = String.format("$4s%s", s);
-//		return String.format("%1$" + count + "s", s); // Not efficient, but not important for this sample.
+		return String.format("%" + count + "s", " ") + s; // Not efficient, but not important for this sample.
 	}
-	
+
 	// TODO: Use aspects.
 	public static void called(Class<?> calledClass, String called, Class<?> callerClass, String caller, int depth) {
 		System.out.println(indent(depth + 2, calledClass.getSimpleName() + "." + called + " called by " + callerClass.getSimpleName() + "." + caller));
