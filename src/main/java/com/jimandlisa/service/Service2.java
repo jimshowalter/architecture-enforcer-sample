@@ -19,11 +19,40 @@ import com.jimandlisa.app.two.App2;
 import com.jimandlisa.utils.Utils;
 
 public class Service2 {
+	
+	// Because pf-CDA is pretty smart and we want an undetected reflection call, we need to obscure the class used for reflection. to hide it from pf-CDA.
+	
+	static String hideReflectionCall1() {
+		if (System.getProperty("bogus1") != null) {
+			return "";
+		}
+		return "com";
+	}
+	
+	static String hideReflectionCall2() {
+		if (System.getProperty("bogus2") != null) {
+			return "abcd";
+		} else {
+			return "jima" + "nd" + "lisa";
+		}
+	}
+	
+	static String hideReflectionCall3() {
+		if (System.getProperty("bogus3") != null) {
+			return "efgh";
+		} else {
+			return ".ui.one.UI1";
+		}
+	}
+	
+	private static String hideReflectionCall0() throws Exception {
+		return hideReflectionCall1() + "." + hideReflectionCall2() + hideReflectionCall3();
+	}
 
 	public static void s2(Class<?> callerClass, String caller, int depth) throws Exception {
 		Utils.called(Service2.class, "s2", callerClass, caller, depth);
 		App2.a2(Service2.class, "s2", depth + 2);
-		Method method = Class.forName("com.jimandlisa.ui.one.UI1").getDeclaredMethod("u1Private", Class.class, String.class, int.class); // Illegal!
+		Method method = Class.forName(hideReflectionCall0()).getDeclaredMethod("u1Private", Class.class, String.class, int.class); // Illegal!
 		method.setAccessible(true);
 		method.invoke(null, Service2.class, "s2", depth + 2);
 	}

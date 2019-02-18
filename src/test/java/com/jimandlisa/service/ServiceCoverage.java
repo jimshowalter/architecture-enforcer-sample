@@ -11,34 +11,19 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
-package com.jimandlisa;
+package com.jimandlisa.service;
 
 import org.junit.Test;
 
-import com.jimandlisa.app.one.App1;
-import com.jimandlisa.app.two.App2;
-import com.jimandlisa.data.Data;
-import com.jimandlisa.service.Service2;
-import com.jimandlisa.service.one.Service1;
-import com.jimandlisa.ui.one.UI1;
-import com.jimandlisa.ui.two.UI2;
-import com.jimandlisa.utils.Utils;
-
-public class RunnerTest {
+public class ServiceCoverage {
 
 	@Test
-	public void runIt() throws Exception {
-		System.out.println(RunnerTest.class.getSimpleName() + ".runIt");
-		UI1.u1(RunnerTest.class, "runIt", 0);
-		UI2.u2(RunnerTest.class, "runIt", 0);
-		// Coverage.
-		new App1();
-		new App2();
-		new Data();
-		new Service1();
-		new Service2();
-		new UI1();
-		new UI2();
-		new Utils();
+	public void doTest() {
+		System.setProperty("bogus1", "bogus");
+		Service2.hideReflectionCall1();
+		System.setProperty("bogus2", "bogus");
+		Service2.hideReflectionCall1();
+		System.setProperty("bogus3", "bogus");
+		Service2.hideReflectionCall2();
 	}
 }
