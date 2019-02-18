@@ -19,8 +19,6 @@ Sample project from which we can generate files used to test architecture-enforc
             <depends-on name="com.jimandlisa.utils.AnotherUnresolved" classification="uses" />
 ```
 
-1. Save the modified file on top of architecture-enforcer/src/test/resources/Sample.odem.
+4. Save the modified file on top of architecture-enforcer/src/test/resources/Sample.odem.
 
-1. Make sure architecture-enforcer builds.
-
-1. Check in.
+5. Make sure architecture-enforcer builds, then check everything in.
