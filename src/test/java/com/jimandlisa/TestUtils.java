@@ -13,39 +13,27 @@
 
 package com.jimandlisa;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-import org.junit.Test;
-
-import com.jimandlisa.app.one.App1;
-import com.jimandlisa.app.two.App2;
-import com.jimandlisa.data.Data;
-import com.jimandlisa.service.Service2;
-import com.jimandlisa.service.one.Service1;
-import com.jimandlisa.ui.one.UI1;
-import com.jimandlisa.ui.two.UI2;
-import com.jimandlisa.utils.Utils;
-
-public class RunnerTest {
-
-	@Test
-	public void runIt() throws Exception {
-		try (ByteArrayOutputStream baos = new ByteArrayOutputStream(); PrintStream ps = new PrintStream(baos, true, StandardCharsets.UTF_8.name())) {
-			ps.println(RunnerTest.class.getSimpleName() + ".runIt");
-			UI1.u1(RunnerTest.class, "runIt", 0, ps);
-			UI2.u2(RunnerTest.class, "runIt", 0, ps);
-			TestUtils.compare(baos, "TestRunnerCanned.txt");
-		}
-		// Coverage.
-		new App1();
-		new App2();
-		new Data();
-		new Service1();
-		new Service2();
-		new UI1();
-		new UI2();
-		new Utils();
+public class TestUtils {
+	
+	public static Path path(String file) {
+		return Paths.get(System.getProperty("user.dir"), "target", "test-classes", file);
+	}
+	
+	public static String read(String file) throws Exception {
+		return new String(Files.readAllBytes(path(file)), StandardCharsets.UTF_8.name());
+	}
+	
+	public static void compare(ByteArrayOutputStream baos, String canned) throws Exception {
+		String out = new String(baos.toByteArray(), StandardCharsets.UTF_8).trim().replaceAll("\r\n\r\n", "\r\n");
+		String cannedOut = read(canned).trim().replaceAll("\r\n\r\n", "\r\n");
+		assertEquals(out, cannedOut);
 	}
 }

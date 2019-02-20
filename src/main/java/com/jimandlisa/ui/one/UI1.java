@@ -13,19 +13,21 @@
 
 package com.jimandlisa.ui.one;
 
+import java.io.PrintStream;
+
 import com.jimandlisa.service.one.Service1;
 import com.jimandlisa.utils.Utils;
 
 public class UI1 {
 
-	public static void u1(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(UI1.class, "u1", callerClass, caller, depth);
-		Service1.s1(UI1.class, "u1", depth + 2);
+	public static void u1(Class<?> callerClass, String caller, int depth, PrintStream ps) throws Exception {
+		Utils.called(UI1.class, "u1", callerClass, caller, depth, ps);
+		Service1.s1(UI1.class, "u1", depth + 2, ps);
 	}
 
 	@SuppressWarnings("unused")
-	private static void u1Private(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(UI1.class, "u1Private", callerClass, caller, depth);
-		Service1.s1(UI1.class, "u1Private", depth + 2);
+	private static void u1Private(Class<?> callerClass, String caller, int depth, PrintStream ps) throws Exception {
+		Utils.called(UI1.class, "u1Private", callerClass, caller, depth, ps);
+		Service1.s1(UI1.class, "u1Private", depth + 2, ps);
 	}
 }

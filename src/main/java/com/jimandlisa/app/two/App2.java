@@ -13,13 +13,15 @@
 
 package com.jimandlisa.app.two;
 
+import java.io.PrintStream;
+
 import com.jimandlisa.data.Data;
 import com.jimandlisa.utils.Utils;
 
 public class App2 {
 
-	public static void a2(Class<?> callerClass, String caller, int depth) {
-		Utils.called(App2.class, "a2", callerClass, caller, depth);
-		Data.d(App2.class, "a2", depth + 2);
+	public static void a2(Class<?> callerClass, String caller, int depth, PrintStream ps) {
+		Utils.called(App2.class, "a2", callerClass, caller, depth, ps);
+		Data.d(App2.class, "a2", depth + 2, ps);
 	}
 }

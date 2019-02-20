@@ -13,6 +13,8 @@
 
 package com.jimandlisa.utils;
 
+import java.io.PrintStream;
+
 public class Utils {
 
 	public static String indent(int count, String s) {
@@ -20,7 +22,7 @@ public class Utils {
 	}
 
 	// TODO: Use aspects.
-	public static void called(Class<?> calledClass, String called, Class<?> callerClass, String caller, int depth) {
-		System.out.println(indent(depth + 2, calledClass.getSimpleName() + "." + called + " called by " + callerClass.getSimpleName() + "." + caller));
+	public static void called(Class<?> calledClass, String called, Class<?> callerClass, String caller, int depth, PrintStream ps) {
+		ps.println(indent(depth + 2, calledClass.getSimpleName() + "." + called + " called by " + callerClass.getSimpleName() + "." + caller));
 	}
 }

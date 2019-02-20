@@ -13,13 +13,15 @@
 
 package com.jimandlisa.service.one;
 
+import java.io.PrintStream;
+
 import com.jimandlisa.app.one.App1;
 import com.jimandlisa.utils.Utils;
 
 public class Service1 {
 
-	public static void s1(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(Service1.class, "s1", callerClass, caller, depth);
-		App1.a1(Service1.class, "s1", depth + 2);
+	public static void s1(Class<?> callerClass, String caller, int depth, PrintStream ps) throws Exception {
+		Utils.called(Service1.class, "s1", callerClass, caller, depth, ps);
+		App1.a1(Service1.class, "s1", depth + 2, ps);
 	}
 }

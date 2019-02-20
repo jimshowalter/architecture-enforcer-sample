@@ -13,6 +13,7 @@
 
 package com.jimandlisa.service;
 
+import java.io.PrintStream;
 import java.lang.reflect.Method;
 
 import com.jimandlisa.app.two.App2;
@@ -49,11 +50,11 @@ public class Service2 {
 		return hideReflectionCall1() + "." + hideReflectionCall2() + hideReflectionCall3();
 	}
 
-	public static void s2(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(Service2.class, "s2", callerClass, caller, depth);
-		App2.a2(Service2.class, "s2", depth + 2);
-		Method method = Class.forName(hideReflectionCall0()).getDeclaredMethod("u1Private", Class.class, String.class, int.class); // Illegal!
+	public static void s2(Class<?> callerClass, String caller, int depth, PrintStream ps) throws Exception {
+		Utils.called(Service2.class, "s2", callerClass, caller, depth, ps);
+		App2.a2(Service2.class, "s2", depth + 2, ps);
+		Method method = Class.forName(hideReflectionCall0()).getDeclaredMethod("u1Private", Class.class, String.class, int.class, PrintStream.class); // Illegal!
 		method.setAccessible(true);
-		method.invoke(null, Service2.class, "s2", depth + 2);
+		method.invoke(null, Service2.class, "s2", depth + 2, ps);
 	}
 }

@@ -13,11 +13,13 @@
 
 package com.jimandlisa.data;
 
+import java.io.PrintStream;
+
 import com.jimandlisa.utils.Utils;
 
 public class Data {
 
-	public static void d(Class<?> callerClass, String caller, int depth) {
-		Utils.called(Data.class, "d", callerClass, caller, depth);
+	public static void d(Class<?> callerClass, String caller, int depth, PrintStream ps) {
+		Utils.called(Data.class, "d", callerClass, caller, depth, ps);
 	}
 }

@@ -13,13 +13,15 @@
 
 package com.jimandlisa.ui.two;
 
+import java.io.PrintStream;
+
 import com.jimandlisa.service.Service2;
 import com.jimandlisa.utils.Utils;
 
 public class UI2 {
 
-	public static void u2(Class<?> callerClass, String caller, int depth) throws Exception {
-		Utils.called(UI2.class, "u2", callerClass, caller, depth);
-		Service2.s2(UI2.class, "u2", depth + 2);
+	public static void u2(Class<?> callerClass, String caller, int depth, PrintStream ps) throws Exception {
+		Utils.called(UI2.class, "u2", callerClass, caller, depth, ps);
+		Service2.s2(UI2.class, "u2", depth + 2, ps);
 	}
 }
