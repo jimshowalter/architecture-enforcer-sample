@@ -25,4 +25,4 @@ Sample project from which we can generate files used to test architecture-enforc
 
 ## See Also ##
 
-https://github.com/jimshowalter/architecture-enforcer-sample
+https://github.com/jimshowalter/architecture-enforcer
