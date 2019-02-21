@@ -22,6 +22,7 @@ public class App2 {
 
 	public static void a2(Class<?> callerClass, String caller, int depth, PrintStream ps) {
 		Utils.called(App2.class, "a2", callerClass, caller, depth, ps);
+		new Utils.Nested(7).dummy();
 		Data.d(App2.class, "a2", depth + 2, ps);
 	}
 }

@@ -16,6 +16,20 @@ package com.jimandlisa.utils;
 import java.io.PrintStream;
 
 public class Utils {
+	
+	public static class Nested { // So we can test with nesting flag on and off.
+		
+		private final int dummy;
+		
+		public Nested(final int dummy) {
+			super();
+			this.dummy = dummy;
+		}
+		
+		public int dummy() {
+			return dummy;
+		}
+	}
 
 	public static String indent(int count, String s) {
 		return String.format("%" + count + "s", " ") + s; // Not efficient, but not important for this sample.
