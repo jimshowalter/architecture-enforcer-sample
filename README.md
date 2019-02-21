@@ -22,3 +22,7 @@ Sample project from which we can generate files used to test architecture-enforc
 4. Save the modified file on top of architecture-enforcer/src/test/resources/Sample.odem.
 
 5. Make sure architecture-enforcer builds, then check everything in.
+
+## See Also ##
+
+https://github.com/jimshowalter/architecture-enforcer-sample
